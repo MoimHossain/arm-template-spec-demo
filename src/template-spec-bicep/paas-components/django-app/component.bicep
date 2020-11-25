@@ -4,7 +4,7 @@ param location string = resourceGroup().location
 param hostingPlanName string = ''
 param containerSpec string =''
 
-module appInsightsDeployment '../appInsights/component.bicep' = {
+module appInsightsDeployment '../appinsights/component.bicep' = {
   name: 'appInsightsDeployment'
   params:{
     appInsights: '${appInsights}'
