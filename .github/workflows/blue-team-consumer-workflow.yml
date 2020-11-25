@@ -1,0 +1,22 @@
+name: Consume-Trusted-Templates
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Azure Login
+        uses: Azure/login@v1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Deploy Blue-Team Django App 
+        working-directory: ./src/consumer-team-blue
+        run: |
+          chmod +x ../provision.sh
+          ./provision.sh
