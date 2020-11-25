@@ -21,6 +21,8 @@ module deployHostingplan '../server-farm/component.bicep' = {
   params:{
     hostingPlanName:  '${hostingPlanName}'
     location: '${location}'
+    costCenter: costCenter
+    environment: environment    
   }   
 }
 
@@ -32,5 +34,7 @@ module deployWebApp '../web-app/component.bicep' = {
     instrumentationKey: appInsightsDeployment.outputs.InstrumentationKey
     serverFarmId: deployHostingplan.outputs.hostingPlanId
     containerSpec: '${containerSpec}'
+    costCenter: costCenter
+    environment: environment    
   }   
 }

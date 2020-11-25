@@ -5,10 +5,19 @@ param serverFarmId string
 param instrumentationKey string
 param containerSpec string
 param location string = resourceGroup().location
+param costCenter string
+param environment string
+
+var resourceTags = {
+  CostCenter: costCenter
+  Environment: environment
+  Kind: 'Managed-Service'
+}
 
 resource app 'Microsoft.Web/sites@2020-06-01' = {
   name: '${webAppName}'
   location: '${location}'
+  tags: resourceTags
   properties: {
     httpsOnly: true
     clientAffinityEnabled: false
