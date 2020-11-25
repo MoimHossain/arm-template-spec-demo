@@ -17,11 +17,11 @@
       "containerSpec": {
         "value": "DOCKER|appsvcorg/django-python:0.1"
       },
-      "resourceTags": {
-        "value": {
-          "Environment": "Development",
-          "CostCenter": "CSP-1982"
-        }
+      "costCenter": {
+        "value": "CSP-44-ASC-GP"
+      },
+      "environment": {
+        "value": "Development"
       }
     }
   }
