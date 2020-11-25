@@ -32,7 +32,9 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Deploy Template Specs to Azure
-        working-directory: ./src/template-spec-bicep/paas-components
+        working-directory: ./src/template-spec-bicep/paas-components        
         run: |
+          chmod +x ../setup-localmachine.sh
+          ../setup-localmachine.sh          
           chmod +x ./deploy-templates.sh
           ./deploy-templates.sh
