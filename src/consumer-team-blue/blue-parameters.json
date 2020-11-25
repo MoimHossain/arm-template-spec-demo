@@ -13,6 +13,9 @@
       },
       "appInsights": {
         "value": "blue-team-ai-cloudoven"
+      },
+      "containerSpec": {
+        "value": "DOCKER|appsvcorg/django-python:0.1"
       }
     }
   }
