@@ -2,8 +2,12 @@ name: Consume-Trusted-Templates
 on:
   push:
     branches: [ main ]
+    paths:
+    - 'src/consumer-team-blue/**'
   pull_request:
     branches: [ main ]
+    paths:
+    - 'src/consumer-team-blue/**'    
   workflow_dispatch:
 
 jobs:  
@@ -20,5 +24,5 @@ jobs:
         run: |
           pwd
           ls
-          chmod +x ../provision.sh
+          chmod +x ./provision.sh
           ./provision.sh

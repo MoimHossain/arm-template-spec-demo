@@ -2,8 +2,12 @@ name: Generate-Trusted-Templates
 on:
   push:
     branches: [ main ]
+    paths:
+    - 'src/template-spec-bicep/**'
   pull_request:
     branches: [ main ]
+    paths:
+    - 'src/template-spec-bicep/**'    
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -12,11 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Context Setup
-        working-directory: ./src/template-spec-bicep
-        run: |
-          chmod +x ./setup-localmachine.sh
-          ./setup-localmachine.sh
       - name: Install Bicep CLI
         working-directory: ./src/template-spec-bicep/paas-components
         run: |
