@@ -12,10 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Azure Login
-        uses: Azure/login@v1.1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Context Setup
         run: |
           cd ./src/template-spec-bicep
@@ -27,8 +23,12 @@ jobs:
           chmod +x ./install-bicep.sh
           ./install-bicep.sh
       - name: Compile Bicep Scripts
-        working-directory: ./src/template-spec-bicep
+        working-directory: ./src/template-spec-bicep/paas-components
         run: |
           ls          
           chmod +x ./build-templates.sh
           ./build-templates.sh
+      - name: Azure Login
+        uses: Azure/login@v1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
