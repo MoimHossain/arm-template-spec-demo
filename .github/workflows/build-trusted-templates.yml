@@ -25,4 +25,9 @@ jobs:
         run: |
           cd ./src/template-spec-bicep/paas-components
           chmod +x ./install-bicep.sh
-          ./install-bicep.sh          
+          ./install-bicep.sh
+      - name: Compile Bicep Scripts
+        run: |
+          cd ./src/template-spec-bicep/paas-components
+          chmod +x ./build-templates.sh
+          ./build-templates.sh
