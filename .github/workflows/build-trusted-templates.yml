@@ -31,3 +31,8 @@ jobs:
         uses: Azure/login@v1.1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Deploy Template Specs to Azure
+        working-directory: ./src/template-spec-bicep/paas-components
+        run: |
+          chmod +x ./deploy-templates.sh
+          ./deploy-templates.sh
