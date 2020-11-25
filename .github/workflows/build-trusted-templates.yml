@@ -27,7 +27,8 @@ jobs:
           chmod +x ./install-bicep.sh
           ./install-bicep.sh
       - name: Compile Bicep Scripts
+        working-directory: ./src/template-spec-bicep
         run: |
-          cd ./src/template-spec-bicep/paas-components
+          ls          
           chmod +x ./build-templates.sh
           ./build-templates.sh
