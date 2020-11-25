@@ -29,8 +29,8 @@ resource app 'Microsoft.Web/sites@2020-06-01' = {
           value: '~2'
         }
         {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: '${instrumentationKey}'
+          name: 'XDT_MicrosoftApplicationInsights_Mode'
+          value: 'default'
         }
       ]
     }
