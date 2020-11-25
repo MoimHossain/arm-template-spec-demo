@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Provisioning environments..."
 
-RESOURCEGROUP="blue-team-resources"
+RESOURCEGROUP="BlueTeam-DjangoApp"
 LOCATION="westeurope"
 TSRGP="CloudOven-Trusted-TemplateSpecs"
 TSNAME="cloudoven-django-app"
