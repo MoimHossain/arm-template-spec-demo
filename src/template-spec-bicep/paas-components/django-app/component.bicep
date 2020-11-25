@@ -3,14 +3,16 @@ param appInsights string = ''
 param location string = resourceGroup().location
 param hostingPlanName string = ''
 param containerSpec string =''
-param resourceTags object
+param costCenter string
+param environment string
 
 module appInsightsDeployment '../appinsights/component.bicep' = {
   name: 'appInsightsDeployment'
   params:{
     appInsights: '${appInsights}'
     location: '${location}'
-    resourceTags: resourceTags
+    costCenter: costCenter
+    environment: environment
   }
 }
 
@@ -19,6 +21,8 @@ module deployHostingplan '../server-farm/component.bicep' = {
   params:{
     hostingPlanName:  '${hostingPlanName}'
     location: '${location}'
+    costCenter: costCenter
+    environment: environment    
   }   
 }
 
@@ -30,5 +34,7 @@ module deployWebApp '../web-app/component.bicep' = {
     instrumentationKey: appInsightsDeployment.outputs.InstrumentationKey
     serverFarmId: deployHostingplan.outputs.hostingPlanId
     containerSpec: '${containerSpec}'
+    costCenter: costCenter
+    environment: environment    
   }   
 }
