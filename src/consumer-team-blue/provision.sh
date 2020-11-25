@@ -3,7 +3,7 @@ echo "Provisioning environments..."
 
 RESOURCEGROUP="blue-team-resources"
 LOCATION="westeurope"
-TSRGP="CloudOven-TemplateSpecs"
+TSRGP="CloudOven-Trusted-TemplateSpecs"
 TSNAME="cloudoven-django-app"
 VERSION="1.0"
 
