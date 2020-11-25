@@ -13,22 +13,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Context Setup
+        working-directory: ./src/template-spec-bicep
         run: |
-          cd ./src/template-spec-bicep
           chmod +x ./setup-localmachine.sh
           ./setup-localmachine.sh
       - name: Install Bicep CLI
+        working-directory: ./src/template-spec-bicep/paas-components
         run: |
-          cd ./src/template-spec-bicep/paas-components
           chmod +x ./install-bicep.sh
           ./install-bicep.sh
       - name: Compile Bicep Scripts
         working-directory: ./src/template-spec-bicep/paas-components
         run: |
-          echo "PWD"
-          pwd
-          echo "------------------"
-          ls          
           chmod +x ./build-templates.sh
           ./build-templates.sh
       - name: Azure Login
