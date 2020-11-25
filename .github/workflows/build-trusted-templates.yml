@@ -16,10 +16,13 @@ jobs:
         uses: Azure/login@v1.1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      # Runs a set of commands using the runners shell
       - name: Context Setup
         run: |
           cd ./src/template-spec-bicep
           chmod +x ./setup-localmachine.sh
           ./setup-localmachine.sh
+      - name: Install Bicep CLI
+        run: |
+          cd ./src/template-spec-bicep/paas-components
+          chmod +x ./install-bicep.sh
+          ./install-bicep.sh          
