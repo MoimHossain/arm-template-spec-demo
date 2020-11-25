@@ -19,5 +19,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Context Setup
-        run: |
-          ./src/template-spec-bicep/setup-localmachine.sh
+        run: ./src/template-spec-bicep/setup-localmachine.sh
