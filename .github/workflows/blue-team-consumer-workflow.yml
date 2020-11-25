@@ -18,5 +18,7 @@ jobs:
       - name: Deploy Blue-Team Django App 
         working-directory: ./src/consumer-team-blue
         run: |
+          pwd
+          ls
           chmod +x ../provision.sh
           ./provision.sh
