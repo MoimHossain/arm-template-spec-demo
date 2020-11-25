@@ -2,7 +2,6 @@
 
 param appInsights string
 param location string = resourceGroup().location
-param workspaceResourceId string = ''
 param resourceTags object
 
 resource appIns 'Microsoft.Insights/components@2020-02-02-preview' = {
@@ -13,7 +12,6 @@ resource appIns 'Microsoft.Insights/components@2020-02-02-preview' = {
 
   properties: {
     Application_Type: 'web'
-    WorkspaceResourceId: workspaceResourceId
   }
 }
 
