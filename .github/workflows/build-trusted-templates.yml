@@ -25,6 +25,9 @@ jobs:
       - name: Compile Bicep Scripts
         working-directory: ./src/template-spec-bicep/paas-components
         run: |
+          echo "PWD"
+          pwd
+          echo "------------------"
           ls          
           chmod +x ./build-templates.sh
           ./build-templates.sh
