@@ -12,13 +12,12 @@ echo "Resource group $RESOURCEGROUP created/updated"
 
 APPINS_TSID=$(az ts show --resource-group $TSRGP --name $TSNAME --version $VERSION --query 'id' -o json)
 
+az deployment group what-if \
+  --resource-group $RESOURCEGROUP \
+  --template-spec $APPINS_TSID \
+  --parameters "./blue-parameters.json"
 
 RES=$(az deployment group create \
   --resource-group $RESOURCEGROUP \
   --template-spec $APPINS_TSID \
   --parameters "./blue-parameters.json")
-
-# az deployment group what-if \
-#   --resource-group $RESOURCEGROUP \
-#   --template-spec $APPINS_TSID \
-#   --parameters "./blue-parameters.json"
